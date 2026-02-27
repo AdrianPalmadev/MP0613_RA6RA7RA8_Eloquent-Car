@@ -108,6 +108,8 @@ class RentController extends Controller
             $rent->delete();
             return redirect()->route('admin.rent.index')->with('success', 'The rental has been deleted successfully.');
         } else {
+            $rent = Rent::findOrFail($id);
+            $rent->delete();
             return redirect()->route('rent.index');
         }
     }
